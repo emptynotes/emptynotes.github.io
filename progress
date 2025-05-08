@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Path</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+    .path-container {
+      position: relative;
+      width: 200px;
+    }
+    .step {
+      background-color: #eee;
+      padding: 12px 20px;
+      border-radius: 20px;
+      margin: 30px 0;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.3s;
+    }
+    .step:hover {
+      background-color: #d0f0ff;
+    }
+    .step.completed {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .step::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: -30px;
+      height: 30px;
+      width: 4px;
+      background-color: #ccc;
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+    .step:first-child::before {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="path-container">
+  <div class="step completed" onclick="goTo('https://example.com/lesson1')">Lesson 1</div>
+  <div class="step completed" onclick="goTo('https://example.com/lesson2')">Lesson 2</div>
+  <div class="step" onclick="goTo('https://example.com/lesson3')">Lesson 3</div>
+  <div class="step" onclick="goTo('https://example.com/lesson4')">Lesson 4</div>
+</div>
+
+<script>
+  function goTo(url) {
+    window.open(url, '_blank');
+  }
+</script>
+
+</body>
+</html>
